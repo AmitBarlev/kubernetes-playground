@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: replication-controller
+  labels:
+    app: kubernetes-playground
+    type: backend
+
+spec:
+  template:
+    metadata:
+      name: pod
+      labels:
+        app: kubernetes-playground
+        type: persistence
+    spec:
+      containers:
+        - name: redis
+          image: redis
+  replicas: 2

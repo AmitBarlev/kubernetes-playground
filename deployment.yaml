@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-playground
+  labels:
+    type: backend
+spec:
+  selector:
+    matchLabels:
+      app: kubernetes-playground
+  replicas: 2
+  template:
+    metadata:
+      name: ng
+      labels:
+        app: kubernetes-playground
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
